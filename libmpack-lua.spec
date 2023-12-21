@@ -7,7 +7,7 @@
 #
 Name     : libmpack-lua
 Version  : 1.0.11
-Release  : 6
+Release  : 7
 URL      : https://github.com/libmpack/libmpack-lua/archive/1.0.11/libmpack-lua-1.0.11.tar.gz
 Source0  : https://github.com/libmpack/libmpack-lua/archive/1.0.11/libmpack-lua-1.0.11.tar.gz
 Summary  : No detailed summary available
@@ -15,7 +15,6 @@ Group    : Development/Tools
 License  : MIT
 Requires: libmpack-lua-lib = %{version}-%{release}
 Requires: libmpack-lua-license = %{version}-%{release}
-BuildRequires : LuaJIT-dev
 BuildRequires : libmpack-dev
 BuildRequires : lua-dev
 # Suppress stripping binaries
@@ -55,7 +54,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1703191623
+export SOURCE_DATE_EPOCH=1703191719
 export GCC_IGNORE_WERROR=1
 CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
@@ -90,7 +89,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1703191623
+export SOURCE_DATE_EPOCH=1703191719
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libmpack-lua
 cp %{_builddir}/libmpack-lua-%{version}/LICENSE-MIT %{buildroot}/usr/share/package-licenses/libmpack-lua/6a4d33353d2a8e515cb94ba0eac54ec4bfdabb50 || :
@@ -105,8 +104,8 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/lua/5.1/mpack.so
-/usr/lib64/lua/5.1/mpack.so
+/V3/usr/lib/lua/5.1/mpack.so
+/usr/lib/lua/5.1/mpack.so
 
 %files license
 %defattr(0644,root,root,0755)
